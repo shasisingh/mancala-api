@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  app-api:
+    build: ./mancala-api
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    volumes:
+      - .m2:/root/.m2
+  app-web:
+    build: ./mancala-web
+    restart: on-failure
+    ports:
+      - "8082:8082"
+    volumes:
+      - .m2:/root/.m2
+  sonarqube:
+    image: sonarqube
+    expose:
+      - 9000
+    ports:
+      - "9000:9000"
+
+

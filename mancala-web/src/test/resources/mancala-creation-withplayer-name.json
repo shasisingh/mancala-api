@@ -1,0 +1,73 @@
+{
+  "id": 1,
+  "gameId": "2f01644e-f015-4454-b0e4-6a09acf1360c",
+  "mancalaPits": [
+    {
+      "pitLocation": 1,
+      "stones": 6
+    },
+    {
+      "pitLocation": 2,
+      "stones": 6
+    },
+    {
+      "pitLocation": 3,
+      "stones": 6
+    },
+    {
+      "pitLocation": 4,
+      "stones": 6
+    },
+    {
+      "pitLocation": 5,
+      "stones": 6
+    },
+    {
+      "pitLocation": 6,
+      "stones": 6
+    },
+    {
+      "pitLocation": 7,
+      "stones": 0
+    },
+    {
+      "pitLocation": 8,
+      "stones": 6
+    },
+    {
+      "pitLocation": 9,
+      "stones": 6
+    },
+    {
+      "pitLocation": 10,
+      "stones": 6
+    },
+    {
+      "pitLocation": 11,
+      "stones": 6
+    },
+    {
+      "pitLocation": 12,
+      "stones": 6
+    },
+    {
+      "pitLocation": 13,
+      "stones": 6
+    },
+    {
+      "pitLocation": 14,
+      "stones": 0
+    }
+  ],
+  "player1": {
+    "name": "SuperMan",
+    "turn": false,
+    "prevTurn": false
+  },
+  "player2": {
+    "name": "X-man",
+    "turn": false,
+    "prevTurn": false
+  },
+  "gameStatus": "INITIATED"
+}
