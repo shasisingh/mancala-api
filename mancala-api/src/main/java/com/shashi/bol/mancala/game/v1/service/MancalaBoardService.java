@@ -15,7 +15,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+import static com.shashi.bol.mancala.game.v1.domain.MancalaGame.GameStatus.FINISHED;
 import static com.shashi.bol.mancala.game.v1.domain.MancalaGame.GameStatus.ON_GOING;
+import static com.shashi.bol.mancala.game.v1.domain.MancalaGame.GameStatus.TIE;
 import static com.shashi.bol.mancala.game.v1.service.MancalaConstants.EMPTY_STONE;
 import static com.shashi.bol.mancala.game.v1.service.MancalaConstants.FIRST_PIT_PLAYER_B;
 import static com.shashi.bol.mancala.game.v1.service.MancalaConstants.LEFT_PIT_HOUSE_ID;
@@ -24,8 +26,6 @@ import static com.shashi.bol.mancala.game.v1.service.MancalaConstants.SIXTH_PIT_
 import static com.shashi.bol.mancala.game.v1.service.MancalaConstants.SIXTH_PIT_PLAYER_B;
 import static com.shashi.bol.mancala.game.v1.service.MancalaConstants.TOTAL_PITS;
 import static com.shashi.bol.mancala.game.v1.service.MancalaConstants.WINNER_TAG;
-import static com.shashi.bol.mancala.game.v1.domain.MancalaGame.GameStatus.FINISHED;
-import static com.shashi.bol.mancala.game.v1.domain.MancalaGame.GameStatus.TIE;
 import static java.lang.Boolean.TRUE;
 
 @Service
@@ -88,7 +88,6 @@ public class MancalaBoardService implements MancalaBoardApi  {
     public MancalaGame.GameStatus getCurrentStatus() {
         return gameBoard.getGameStatus();
     }
-
 
     @Override
     public int getTotalStonesFromPlayer1() {
