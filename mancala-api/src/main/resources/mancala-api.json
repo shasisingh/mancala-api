@@ -1,0 +1,227 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mancala API",
+    "contact": {
+      "name": "Shashi Singh",
+      "url": "https://www.linkedin.com/in/shasi",
+      "email": "mail.shasisingh@gmail.com"
+    },
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://127.0.0.1:8080",
+      "description": "Inferred Url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "mancala board",
+      "description": "Services related with board"
+    },
+    {
+      "name": "mancala-controller",
+      "description": "Mancala Controller"
+    }
+  ],
+  "paths": {
+    "/games/v1/mancala/create": {
+      "post": {
+        "tags": [
+          "mancala-controller"
+        ],
+        "summary": "createGame",
+        "operationId": "createGameUsingPOST",
+        "parameters": [
+          {
+            "name": "pitStone",
+            "in": "query",
+            "description": "pitStone",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "player1",
+            "in": "query",
+            "description": "player1",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "player2",
+            "in": "query",
+            "description": "player2",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/games/v1/mancala/play/status/{gameId}": {
+      "get": {
+        "tags": [
+          "mancala-controller"
+        ],
+        "summary": "gameStatus",
+        "operationId": "gameStatusUsingGET",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "description": "gameId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/games/v1/mancala/play/{gameId}/pits/{fromPitId}": {
+      "put": {
+        "tags": [
+          "mancala-controller"
+        ],
+        "summary": "play",
+        "operationId": "playUsingPUT",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "description": "gameId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromPitId",
+            "in": "path",
+            "description": "fromPitId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GameDTO": {
+        "title": "GameDTO",
+        "type": "object",
+        "properties": {
+          "gameId": {
+            "type": "string"
+          },
+          "gameStatus": {
+            "type": "string",
+            "enum": [
+              "FINISHED",
+              "INITIATED",
+              "ON_GOING",
+              "TIE"
+            ]
+          },
+          "mancalaPits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MancalaPit"
+            }
+          },
+          "player1": {
+            "$ref": "#/components/schemas/Player"
+          },
+          "player2": {
+            "$ref": "#/components/schemas/Player"
+          }
+        }
+      },
+      "MancalaPit": {
+        "title": "MancalaPit",
+        "type": "object",
+        "properties": {
+          "pitLocation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stones": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Player": {
+        "title": "Player",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "prevTurn": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "turn": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
