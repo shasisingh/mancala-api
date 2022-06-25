@@ -6,6 +6,7 @@
 **/*.versionsBackup
 **/target
 /keystores
+/logs
 *.cer
 *.p12
 **/logs
