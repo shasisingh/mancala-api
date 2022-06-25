@@ -39,6 +39,7 @@ The game is over when one player’s pits are completely empty. The other player
 - [jdk11](https://www.oracle.com/java/technologies/downloads/#java11)
 - [docker-compose](https://docs.docker.com/compose/install/)
 - [maven](https://maven.apache.org/download.cgi)
+- [make](https://formulae.brew.sh/formula/make)
 - for sonar varification you need to have user/password and placed inside setting.xml
 
 ## Security
